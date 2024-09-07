@@ -5,6 +5,8 @@ VisualStudioVersion = 17.8.34330.188
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ETICARET.Entities", "ETICARET.Entites\ETICARET.Entities.csproj", "{4302CE5D-E606-47D6-ABAD-72325E2C1BBF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ETICARET.DataAccess", "ETICARET.DataAccess\ETICARET.DataAccess.csproj", "{3397EF3D-89DC-4200-AD64-ABF09A2AE8EF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{4302CE5D-E606-47D6-ABAD-72325E2C1BBF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4302CE5D-E606-47D6-ABAD-72325E2C1BBF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4302CE5D-E606-47D6-ABAD-72325E2C1BBF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3397EF3D-89DC-4200-AD64-ABF09A2AE8EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3397EF3D-89DC-4200-AD64-ABF09A2AE8EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3397EF3D-89DC-4200-AD64-ABF09A2AE8EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3397EF3D-89DC-4200-AD64-ABF09A2AE8EF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
