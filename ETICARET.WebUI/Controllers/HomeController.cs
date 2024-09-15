@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using ETICARET.WebUI.Extensions;
+using ETICARET.WebUI.Models;
+using Microsoft.AspNetCore.Mvc;
 
 namespace ETICARET.WebUI.Controllers
 {
@@ -6,6 +8,7 @@ namespace ETICARET.WebUI.Controllers
     {
         public IActionResult Index()
         {
+           
             return View();
         }
     }

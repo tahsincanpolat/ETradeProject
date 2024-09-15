@@ -3,6 +3,7 @@ using ETICARET.Business.Concrete;
 using ETICARET.DataAccess.Abstract;
 using ETICARET.DataAccess.Concrete.EfCore;
 using ETICARET.WebUI.Identity;
+using ETICARET.WebUI.Middlewares;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
@@ -98,7 +99,7 @@ if (!app.Environment.IsDevelopment())
 
 
 app.UseStaticFiles();
-
+app.CustomStaticFiles();
 app.UseRouting();
 app.UseHttpsRedirection();
 app.UseAuthorization();
