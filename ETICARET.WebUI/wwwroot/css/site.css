@@ -20,3 +20,42 @@ html {
 body {
   margin-bottom: 60px;
 }
+.carousel-control-next{
+    right:-65px !important;
+}
+.carousel-control-prev {
+    left: -65px !important;
+}
+.card>.card-body{
+    height:150px
+}
+.card > img {
+    aspect-ratio: 3/2;
+    object-fit:contain;
+    margin-top:5px;
+}
+.card > .card-body > .card-title {
+    margin-bottom:10px
+}
+.card>.card-body>.card-title>a {
+    color:#0d6efd;
+    text-decoration:none;
+    font-size:18px
+}
+.card > .card-body >.price-box> .price {
+    background-color: #0d6efd !important;
+    color:#f2f2f2 !important;
+    padding:8px;
+    font-size:20px;
+    font-weight:600;
+    border-radius:5px;
+    margin-top:10px !important;
+    text-align:right !important
+}
+
+@media only screen and (max-width : 667px) {
+    .carousel > .carousel-inner > .carousel-item > img {
+        width: 100%;
+    }
+}
+

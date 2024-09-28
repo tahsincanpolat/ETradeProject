@@ -11,16 +11,14 @@
     </head>
     <body>
         <partial name="_navbar" />
-        <div class="container pageContainer mb-5">
+        <div class="container pageContainer">
         @if(TempData["message"] != null)
         {
             /* error ve success mesajları */
             <partial name="_resultMessage" model="@(TempData.Get<ResultModel>("message"))" />
         }
         </div>
-        <div>
-            @RenderBody()
-        </div>
+        @RenderBody()
 
     <script src="/modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
     <script src="~/js/site.js"></script>
