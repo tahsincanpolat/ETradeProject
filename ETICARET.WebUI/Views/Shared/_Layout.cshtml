@@ -6,20 +6,21 @@
         <title>@ViewData["Title"] - Üçüncübinyıl ETİCARET</title>
         <link rel="stylesheet" href="/modules/bootstrap/dist/css/bootstrap.min.css" />
         <link rel="stylesheet" href="~/css/site.css" />
-        <link rel="stylesheet" href="/modules/jquery/dist/jquery.min.js" />
+        <script src="/modules/jquery/dist/jquery.min.js" ></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
         <!-- font awesome -->
     </head>
     <body>
         <partial name="_navbar" />
         <div class="container pageContainer">
-        @if(TempData["message"] != null)
-        {
-            /* error ve success mesajları */
-            <partial name="_resultMessage" model="@(TempData.Get<ResultModel>("message"))" />
-        }
+            @if(TempData["message"] != null)
+            {
+                /* error ve success mesajları */
+                <partial name="_resultMessage" model="@(TempData.Get<ResultModel>("message"))" />
+            }
+            @RenderBody()
         </div>
-        @RenderBody()
+
 
     <script src="/modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
     <script src="~/js/site.js"></script>
