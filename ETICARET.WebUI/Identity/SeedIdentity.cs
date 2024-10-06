@@ -23,7 +23,7 @@ namespace ETICARET.WebUI.Identity
                     EmailConfirmed = true,
                 };
 
-                var result = await userManager.CreateAsync(user);
+                var result = await userManager.CreateAsync(user,password);
 
                 if (result.Succeeded)
                 {

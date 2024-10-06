@@ -85,7 +85,13 @@ body {
     padding: 10px;
     border-radius:5px;
 }
-
+.validation-box{
+    margin:0 auto;
+}
+.row > .validation-box > .validation > ul > li {
+    list-style: none;
+    font-weight: 700
+}
 @media only screen and (max-width : 667px) {
     .carousel > .carousel-inner > .carousel-item > img {
         width: 100%;
