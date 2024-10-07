@@ -18,7 +18,7 @@ namespace ETICARET.WebUI.EmailService
             try
             {
                 var message = new MailMessage();
-                message.From = new MailAddress("test_ucuncubinyilakademi@hotmail.com");
+                message.From = new MailAddress("ucuncubinyilakademimailservice@gmail.com");
 
                 to.ForEach(x =>
                 {
@@ -29,10 +29,10 @@ namespace ETICARET.WebUI.EmailService
                 message.Body = body;
                 message.IsBodyHtml = isHtml;
 
-                using (var smtp = new SmtpClient("smtp-mail.outlook.com", 587))
+                using (var smtp = new SmtpClient("smtp.gmail.com", 587))
                 {
                     smtp.EnableSsl = true;
-                    smtp.Credentials = new NetworkCredential("test_ucuncubinyilakademi@hotmail.com","Uby123456");
+                    smtp.Credentials = new NetworkCredential("ucuncubinyilakademimailservice@gmail.com", "wdpy prpp pekv nfll");
                     smtp.UseDefaultCredentials = false;
                     smtp.Send(message);
                     result = true;
