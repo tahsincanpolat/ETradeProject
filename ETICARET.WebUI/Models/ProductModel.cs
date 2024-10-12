@@ -1,5 +1,6 @@
 ﻿using ETICARET.Entities;
 using System.ComponentModel.DataAnnotations;
+using System.Runtime.InteropServices;
 
 namespace ETICARET.WebUI.Models
 {
@@ -14,6 +15,9 @@ namespace ETICARET.WebUI.Models
         public string Description { get; set; }
 
         public List<Image>? Images { get; set; }
+        
+        [Required]
+        public decimal Price { get; set; }
 
         public List<Category>? SelectedCategories { get; set; }
         public string CategoryId { get; set; }

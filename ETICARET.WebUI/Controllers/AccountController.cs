@@ -175,5 +175,119 @@ namespace ETICARET.WebUI.Controllers
 
             return Redirect("~/");
         }
+
+        public IActionResult ForgotPassword()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> ForgotPassword(string email)
+        {
+            if (string.IsNullOrEmpty(email))
+            {
+                TempData.Put("message", new ResultModel()
+                {
+                    Title = "Forgot Password",
+                    Message = "Email boş geçilemez.",
+                    Css = "danger"
+                });
+
+                return View();
+            }
+
+            var user = await _userManager.FindByEmailAsync(email);
+
+            if(user is null)
+            {
+                TempData.Put("message", new ResultModel()
+                {
+                    Title = "Forgot Password",
+                    Message = "Bu Email adresi ile kullanıcı bulunamadı.",
+                    Css = "danger"
+                });
+
+                return View();
+            }
+
+            var code = await _userManager.GeneratePasswordResetTokenAsync(user);
+
+            var callbackUrl = Url.Action("ResetPassword", "Account", new
+            {
+                token = code
+            });
+
+            // Send Email
+            string siteUrl = "https://localhost:5174";
+            string activeUrl = $"{siteUrl}{callbackUrl}";
+
+            string body = $"Parolanızı yenilemek için <a href='{activeUrl}' target='_blank'>tıklayınız</a>.";
+
+            MailHelper.SendEmail(body, email, "ETICARET ŞİFRE YENİLEME");
+
+            TempData.Put("message", new ResultModel()
+            {
+                Title = "Forgot Password",
+                Message = "Email adresinize şifre yenileme maili gönderilmiştir.",
+                Css = "success"
+            });
+
+            return RedirectToAction("Login", "Account");
+
+
+        }
+
+        public IActionResult ResetPassword(string token)
+        {
+            if(token == null)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+            
+            var model = new ResetPasswordModel() { Token = token };
+
+            return View(model);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> ResetPassword(ResetPasswordModel model)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(model);
+            }
+
+            var user = await _userManager.FindByEmailAsync(model.Email);
+
+            if(user is null)
+            {
+                TempData.Put("message", new ResultModel()
+                {
+                    Title = "Reset Password",
+                    Message = "Bu Email adresi ile kullanıcı bulunamadı.",
+                    Css = "danger"
+                });
+
+                return RedirectToAction("Index", "Home");
+            }
+
+            var result = await _userManager.ResetPasswordAsync(user, model.Token, model.Password);
+
+            if (result.Succeeded)
+            {
+                return RedirectToAction("Login", "Account");
+            }
+            else
+            {
+                TempData.Put("message", new ResultModel()
+                {
+                    Title = "Reset Password",
+                    Message = "Şifreniz uygun değildir.",
+                    Css = "danger"
+                });
+
+                return View(model);
+            }
+        }
     }
 }
