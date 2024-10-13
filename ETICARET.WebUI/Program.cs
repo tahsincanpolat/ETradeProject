@@ -140,11 +140,6 @@ app.UseEndpoints(endpoints =>
          defaults: new { controller = "Admin", Action = "EditCategory" }
      );
 
-        endpoints.MapControllerRoute(
-           name: "adminProducts",
-           pattern: "admin/categories/{id?}",
-           defaults: new { controller = "Admin", Action = "EditCategory" }
-        );
 
         endpoints.MapControllerRoute(
           name: "cart",

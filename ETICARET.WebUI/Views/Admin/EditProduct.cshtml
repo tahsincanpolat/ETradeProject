@@ -70,7 +70,7 @@
                         name="categoryIds"
                         type="checkbox"
                         class="form-check-input"
-                        value="category@(item.Id)" 
+                        value="@item.Id" 
                         @(Model.SelectedCategories.Any(i => i.Id == item.Id) ? "checked" : "")
                         />
                     <label class="form-check-label" for="category@(item.Id)">@item.Name</label>

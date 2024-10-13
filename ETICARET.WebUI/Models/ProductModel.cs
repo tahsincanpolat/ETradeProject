@@ -8,10 +8,10 @@ namespace ETICARET.WebUI.Models
     {
         public int Id { get; set; }
         [Required]
-        [StringLength(60,MinimumLength = 10 , ErrorMessage = "Ürün ismi min 10 max 60 karakter olmalıdır.")]
+        [StringLength(60,MinimumLength = 5 , ErrorMessage = "Ürün ismi min 10 max 60 karakter olmalıdır.")]
         public string Name { get; set; }
         [Required]
-        [StringLength(100, MinimumLength = 10, ErrorMessage = "Ürün açıklaması min 10 max 100 karakter olmalıdır.")]
+        [StringLength(100, MinimumLength = 5, ErrorMessage = "Ürün açıklaması min 10 max 100 karakter olmalıdır.")]
         public string Description { get; set; }
 
         public List<Image>? Images { get; set; }
