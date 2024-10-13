@@ -162,11 +162,7 @@ namespace ETICARET.WebUI.Controllers
                 return Redirect("/admin/products");
             }
 
-
-
             return View(model);
-
-           
         
         }
 
