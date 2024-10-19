@@ -40,7 +40,7 @@
         }
         <div class="mb-3">
             <h4 class="text-primary mb-3">@Model.Product.Price TL</h4>
-            @if(!User.IsInRole("admin") && !User.Identity.IsAuthenticated)
+            @if(!User.IsInRole("admin") && User.Identity.IsAuthenticated)
             {
                 <form asp-controller="Cart" asp-action="AddToCart" method="POST">
                     <input type="hidden" name="productId" value="@Model.Product.Id" />
